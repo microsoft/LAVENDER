@@ -2,16 +2,16 @@
 # [CVPR 2023] LAVENDER: Unifying Video-Language Understanding as Masked Language Modeling
 [Paper](https://openaccess.thecvf.com/content/CVPR2023/papers/Li_LAVENDER_Unifying_Video-Language_Understanding_As_Masked_Language_Modeling_CVPR_2023_paper.pdf) | [Slide](https://datarelease.blob.core.windows.net/lavender/LAVENDER_CVPR2023_slides.pdf) | [Poster](https://datarelease.blob.core.windows.net/lavender/cvpr23_poster.png) | [Video](https://youtu.be/f8scI82_caE)
 
-<img src='_imgs/intro.png' width='80%' />
+<img src='_imgs/intro.png' width='100%' />
 
 This repo is the offcial implementation of CVPR 2023 paper <br>
 "[LAVENDER: Unifying Video-Language Understanding as Masked Language Modeling](https://openaccess.thecvf.com/content/CVPR2023/papers/Li_LAVENDER_Unifying_Video-Language_Understanding_As_Masked_Language_Modeling_CVPR_2023_paper.pdf)" <br>
 [Linjie Li](https://scholar.google.com/citations?user=WR875gYAAAAJ), [Zhe Gan](https://zhegan27.github.io), [Kevin Lin](https://sites.google.com/site/kevinlin311tw/me), [Chung-Ching Lin](https://www.microsoft.com/en-us/research/people/chunglin/), [Zicheng Liu](https://scholar.google.com/citations?user=bkALdvsAAAAJ), [Ce Liu](https://www.linkedin.com/in/ce-liu-5697501a/) and [Lijuan Wang](https://scholar.google.com/citations?user=cDcWXuIAAAAJ)
 
 We explore a **unified** video-language framework LAVENDER, where **Masked Language Modeling (MLM) is used as the common interface for all pre-training and downstream tasks**. Such unification leads to a simplified model architecture, where only a *lightweight MLM head*, instead of a decoder with much more parameters, is needed on top of the multimodal encoder. Surprisingly, experimental results show that this unified framework achieves competitive performance on 14 VidL benchmarks, covering video question answering, text-to-video retrieval and video captioning. Extensive analyses further demonstrate LAVENDER can
-- Seamlessly support all downstream tasks with just a single set of parameter values when multi-task finetuned
-- Generalize to various downstream tasks with limited training samples
-- Enable zero-shot evaluation on video question answering tasks
+- Seamlessly *support all downstream tasks with just a single set of parameter values* when multi-task finetuned
+- *Generalize* to various downstream tasks *with limited training samples*
+- Enable *zero-shot evaluation on video question answering tasks*
 
 ## Table of contents
 * [Requirements](#Requirements)
@@ -86,13 +86,13 @@ There are [partial examples](https://github.com/tsujuifu/pytorch_violet/tree/mai
     ```
 - Pretrain via **single-node multi-gpu** distributed training.
 
-### **Task-specific Baseline**: Pre-training with Video-Text Matching (VTM) + MLM
+### *Task-specific Baseline*: Pre-training with Video-Text Matching (VTM) + MLM
 ```
 CUDA_VISIBLE_DEVICES='0,1,2,3,4,5,6,7' python -m torch.distributed.launch --nproc_per_node=8 --master_port=5566 main_pretrain_mlm.py --config _args/args_pretrain.json --path_output _snapshot
 ```
 - Pretrained checkpoint on WebVid2.5M+CC3M: [link](https://datarelease.blob.core.windows.net/lavender/pretrained_ckpt/task-specific.pt)
 
-### **LAVENDER**: Unified Pre-training with VTM as MLM + MLM
+### *LAVENDER*: Unified Pre-training with VTM as MLM + MLM
 ```
 CUDA_VISIBLE_DEVICES='0,1,2,3,4,5,6,7' python -m torch.distributed.launch --nproc_per_node=8 --master_port=5566 main_pretrain_mlm.py --config _args/args_pretrain.json --path_output _snapshot
 ```
