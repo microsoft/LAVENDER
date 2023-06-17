@@ -1,0 +1,36 @@
+{
+    "type": "captioning",
+    
+    "data_dir": "./_datasets",
+    "task": "msrvtt-cap",
+    "train_yaml": "MSRVTT-v2/train_32frames.yaml",
+    "val_yaml": "MSRVTT-v2/val_32frames.yaml",
+    "test_yaml": "MSRVTT-v2/test_32frames.yaml",
+    
+    "size_img": 224,
+    "size_frame": 4,
+    "size_txt": 50,
+    
+    "size_epoch": 20, 
+    "size_batch": 24,
+    
+    "p_mask": 0.15,
+    "max_gen_length": 20,
+
+    "lr": 2e-5, 
+    "decay": 1e-3, 
+    "max_grad_norm": 1.0,
+    "use_checkpoint": true,
+    "deepspeed": true,
+
+    "vis_backbone_init": "3d",
+    "kinetics": 600, 
+    "vis_backbone": "vidswin",
+    "vis_backbone_size": "base",
+
+    "txt_backbone": "bert-base-uncased",
+    "txt_backbone_embed_only": true,
+    "fusion_encoder": "bert-base-uncased",
+    
+    "path_ckpt": ""
+}

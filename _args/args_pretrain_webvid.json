@@ -1,0 +1,35 @@
+{
+    "type": "pretrain",
+    "temp": 0.05, 
+    
+    "data_dir": "./_datasets",
+    "dataset": ["webvid2.5m"],
+    "size_part": 10,
+    "task": "pretrain",
+    "pretrain_tasks": ["vtm", "mtm"],
+    
+    
+    "size_img": 224,
+    "size_frame": 4,
+    "size_txt": 32,
+   "img_transform":  ["img_rand_crop"],
+    
+    "size_epoch": 10, 
+    "size_batch": 24, 
+    "lr": 2e-5, 
+    "decay": 1e-3, 
+    "max_grad_norm": 1.0,
+    "use_checkpoint": true,
+    "deepspeed": true,
+
+    "vis_backbone_init": "3d",
+    "kinetics": 600, 
+    "vis_backbone": "vidswin",
+    "vis_backbone_size": "base",
+
+    "txt_backbone": "bert-base-uncased",
+    "txt_backbone_embed_only": true,
+    "fusion_encoder": "bert-base-uncased",
+    
+    "path_ckpt": ""
+}

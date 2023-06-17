@@ -1,0 +1,3 @@
+python eval_retrieval_with_tsv.py --config _args/args_didemo-retrieval.json --data_dir ./_datasets/  --size_frame 5 --path_ckpt $CKPT --img_transform img_rand_crop
+
+python -m torch.distributed.launch --nproc_per_node 4  main_pretrain.py --path_output /local_debug --config _args/args_pretrain_webvid.json --data_dir _data/ --size_batch 40 --size_frame 4 --deepspeed --use_checkpoint --size_part 2 --mvm_target optical_flow --pretrain_tasks vtm mtm

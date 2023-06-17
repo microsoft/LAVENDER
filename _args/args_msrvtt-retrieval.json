@@ -1,0 +1,31 @@
+{
+    "type": "retrieval",
+    "temp": 0.05,
+    
+    "data_dir": "./_datasets",
+    "dataset": "msrvtt", 
+    "task": "msrvtt-retrieval", 
+    
+    "size_img": 224,
+    "size_frame": 5,
+    "size_txt": 25,
+    
+    "size_epoch": 10, 
+    "size_batch": 20, 
+    "lr": 2e-5, 
+    "decay": 1e-3, 
+    "max_grad_norm": 1.0,
+    "use_checkpoint": true,
+    "deepspeed": true,
+
+    "vis_backbone_init": "3d",
+    "kinetics": 600, 
+    "vis_backbone": "vidswin",
+    "vis_backbone_size": "base",
+
+    "txt_backbone": "bert-base-uncased",
+    "txt_backbone_embed_only": true,
+    "fusion_encoder": "bert-base-uncased",
+    
+    "path_ckpt": ""
+}
